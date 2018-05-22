@@ -55,6 +55,12 @@ describe('PathTree', function () {
         assert.throws(() => { tree.insert("/foo/:wildcard2") }, Error);
     });
 
+    it('should not allow the same wildcard name on different levels', function () {
+        const tree = new PathTree();
+
+        assert.throws(() => { tree.insert("/foo/:a/bar/:a") }, Error);
+    });
+
     it('should allow storing data in node', function () {
         const tree = new PathTree();
 
