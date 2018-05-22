@@ -1,7 +1,6 @@
-const { Schema, Filter } = require('..');
-const assert = require('assert');
+const { PathTree } = require('..');
 
-const { PathTree } = require('../lib/tree');
+const assert = require('assert');
 
 describe('PathTree', function () {
     it('should insert and return a value', function () {
