@@ -9,19 +9,12 @@ describe('PathNode', function () {
         assert.equal(node.key, 'foo');
     });
 
-    it('should not allow changing key after constructio', function () {
+    it('should not allow changing key after construction', function () {
         const node = new PathNode('foo');
 
         node.key = "bar";
 
         assert.equal(node.key, 'foo');
-    });
-
-    it('should allow being flagged as wildcard node', function () {
-        const node = new PathNode();
-        node.is_wildcard = true;
-
-        assert.equal(node.is_wildcard, true);
     });
 
     it('should allow adding a child node', function () {
