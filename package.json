@@ -1,13 +1,14 @@
 {
   "name": "@microcode/pathtree",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fast search tree for arbitrary paths",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Jesper Svennevid <jesper@microcode.se>",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/microcode/pathtree.git"
   },
-  "author": "Jesper Svennevid",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/microcode/pathtree/issues"
