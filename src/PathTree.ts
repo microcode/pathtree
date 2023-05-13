@@ -1,8 +1,5 @@
-
-import {
-    IPathNode,
-    PathNode
-} from "./PathNode";
+import { IPathNode } from "./IPathNode";
+import { PathNode } from "./PathNode";
 
 export type PathCapture = Map<string, string>;
 type PathParts = string[];
@@ -21,7 +18,7 @@ export class PathTree {
                 let wildcard = node.wildcard;
                 const param = word.substr(1);
 
-                for (let parent = node; parent !== null; parent = parent.parent) {
+                for (let parent: IPathNode | null = node; parent !== null; parent = parent.parent) {
                     if (parent.isWildcard && (param === parent.key)) {
                         throw new Error("Cannot have the same wildcard on different levels");
                     }
