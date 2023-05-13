@@ -1,20 +1,4 @@
-export interface IPathNode {
-    readonly key: string;
-    readonly parent: IPathNode | null;
-    readonly wildcard: IPathNode | null;
-
-    isWildcard: boolean;
-    isLeaf: boolean;
-
-    readonly path: string;
-
-    getChild(key: string) : IPathNode | null;
-    addChild(child: IPathNode, wildcard: boolean): void;
-
-    attachToParent(parent: IPathNode): void;
-
-    data: any | null;
-}
+import { IPathNode } from "./IPathNode";
 
 export class PathNode implements IPathNode {
     private readonly _key: string;
@@ -24,8 +8,8 @@ export class PathNode implements IPathNode {
     private _parent: IPathNode | null = null;
     private _wildcard: IPathNode | null = null;
 
-    private _isWildcard: boolean = false;
-    private _isLeaf: boolean = false;
+    private _isWildcard = false;
+    private _isLeaf = false;
 
     private _data: any | null = null;
 
@@ -73,7 +57,7 @@ export class PathNode implements IPathNode {
     }
 
     getChild(key: string) : IPathNode | null {
-        return this._children.get(key);
+        return this._children.get(key) || null;
     }
 
     addChild(child: IPathNode, wildcard: boolean): void {
@@ -93,6 +77,7 @@ export class PathNode implements IPathNode {
     get path(): string {
         const output: string[] = [];
 
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         for (let node : IPathNode | null = this; node !== null; node = node.parent) {
             if (node.isWildcard) {
                 output.unshift(':' + node.key);

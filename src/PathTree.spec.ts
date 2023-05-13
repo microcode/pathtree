@@ -1,7 +1,4 @@
-import {
-    PathTree,
-    PathCapture
-} from "./PathTree";
+import { PathTree } from "./PathTree";
 
 import * as chai from "chai";
 import "mocha";
@@ -38,7 +35,10 @@ describe('PathTree', function () {
         expect(tree.contains('/foo/1234')).to.be.true;
         expect(tree.contains('/foo/1234/bar')).to.be.true;
         expect(tree.contains('/foo/1234/blutti')).to.be.false;
-        expect(tree.find('/foo/1234/bar', null).path).to.equal('/foo/:wildcard/bar');
+
+        const found = tree.find('/foo/1234/bar', null);
+        expect(found).to.not.be.null;
+        expect(found!.path).to.equal('/foo/:wildcard/bar');
     });
 
     it('should capture wildcard parameters', function () {
@@ -76,6 +76,6 @@ describe('PathTree', function () {
 
         const found = tree.find("/foo", null);
         expect(found).to.not.be.null;
-        expect(found.data).to.equal("bar");
+        expect(found!.data).to.equal("bar");
     });
 });
