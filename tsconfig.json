@@ -27,6 +27,7 @@
       "outDir": "./dist",
       "target": "es2020",
       "moduleResolution": "node",
+      "module": "commonjs",
       "sourceMap": true,
       "listEmittedFiles": true,
       "resolveJsonModule": true,
