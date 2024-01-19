@@ -1,6 +1,6 @@
 {
   "name": "@microcode/pathtree",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Fast search tree for arbitrary paths",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

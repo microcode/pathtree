@@ -13,5 +13,5 @@ export interface IPathNode {
 
     attachToParent(parent: IPathNode): void;
 
-    data: any | null;
+    data?: unknown;
 }

@@ -11,7 +11,7 @@ export class PathNode implements IPathNode {
     private _isWildcard = false;
     private _isLeaf = false;
 
-    private _data: any | null = null;
+    private _data?: unknown = undefined;
 
     constructor(key: string) {
         this._key = key;
@@ -45,11 +45,11 @@ export class PathNode implements IPathNode {
         this._isLeaf = v;
     }
 
-    get data(): any {
+    get data(): unknown | undefined {
         return this._data;
     }
 
-    set data(data: any) {
+    set data(data: unknown | undefined) {
         if (!this.isLeaf) {
             throw new Error("Cannot store data in non-leaf node");
         }
