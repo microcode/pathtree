@@ -41,7 +41,7 @@ describe('PathNode', function () {
         const node = new PathNode('bar');
 
         expect(() => { node.data = "foo" }).to.throw("Cannot store data in non-leaf node");
-        expect(node.data).to.be.null;
+        expect(node.data).to.be.undefined;
     });
 
     it('should allow storing data in leaf node', function () {
